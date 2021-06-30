@@ -1,0 +1,192 @@
+.site-header {
+    padding: 1.5rem 0;
+    position: absolute;
+    width: 100%;
+    transition: .2s all ease-in-out;
+
+    @media(min-width:992px) {
+        padding: 2rem 0;
+        position: fixed;
+        z-index: 999;
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav {
+
+        &__content {
+            display: flex;
+
+            @media(max-width:991px) {
+                position: fixed;
+                right: 0;
+                top: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                width: 100%;
+                background: $primary;
+                transition: .5s all ease-in-out;
+                transform: translateY(-100%);
+                z-index: 99;
+            }
+        }
+
+        &-active {
+            transform: translateY(0%);
+        }
+
+        &__list {
+            display: inline-flex;
+            line-height: 1;
+            align-items: center;
+            margin: 0;
+
+            @media(min-width:992px) {
+                margin: 0 1rem;
+            }
+
+            @media(min-width:1200px) {
+                margin: 0 1.5rem;
+            }
+
+            @media(min-width:1600px) {
+                margin: 0 2rem;
+            }
+
+            @media(max-width:991px) {
+                flex-direction: column;
+            }
+        }
+
+        &__list-item {
+            padding: 0 1rem;
+
+            @media(min-width:1600px) {
+                padding: 0 1.5rem;
+            }
+
+            @media(max-width:991px) {
+                margin-bottom: 1rem;
+            }
+        }
+
+        &__link {
+            text-transform: uppercase;
+            color: $white;
+            display: inline-block;
+            padding: .5rem 0;
+            position: relative;
+
+            @media(min-width:1600px) {
+                padding: .5rem 0;
+            }
+
+            &:hover,
+            &:focus {
+                color: $gray;
+                transform: translateY(-3px);
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 2px;
+                background-color: $gray;
+                opacity: 0;
+                visibility: hidden;
+                transition: .2s all ease-in-out;
+            }
+
+            &.active,
+            &:hover {
+                &:before {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    .menu {
+        &-btn {
+            display: block;
+            cursor: pointer;
+
+            @media(max-width:991px) {
+                position: relative;
+                z-index: 999;
+            }
+        }
+
+        &-line {
+            width: 25px;
+            height: 3px;
+            background-color: $white;
+            margin: 5px;
+            display: none;
+            transition: .2s all ease-in-out;
+
+
+            @media(max-width:991px) {
+                display: block;
+            }
+        }
+
+        &-disabled {
+            // position: fixed;
+
+            .menu-line {
+                background-color: $white;
+                transition: .2s all ease-in-out;
+            }
+
+            .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .line2 {
+                opacity: 0;
+            }
+
+            .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+    }
+}
+
+.sticky-header {
+
+    @media(min-width:992px) {
+        padding: 1rem 0;
+        box-shadow: 0 3px 6px rgba($primary, 0.16), 0 3px 6px rgba($primary, 0.23);
+        background-image: linear-gradient(135deg, rgba($purple-1, .98) 0%, rgba($primary-1, .98) 100%);
+        transition: .2s all ease-in-out;
+        opacity: .9;
+    }
+
+    .site-logo {
+
+        span,
+        strong {
+            font-size: 1.5rem;
+        }
+    }
+
+    .site-header__btn {
+        .btn {
+            padding: .5rem 1rem;
+            transition: .2s all ease-in-out;
+        }
+    }
+}
